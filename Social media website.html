@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+     <!--=============== BOXICONS ===============-->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    
+     <link href="https://fonts.googleapis.com/css?family=Inter:400,800,900&display=swap" rel="stylesheet">
+    <!--<title> Website with Customize Color Theme | CodingLab </title>-->
+    
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   
+   <style type="text/css">
+   
+   
+   
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+   
+   *{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins',sans-serif;
+   transition: all 0.3s ease;
+   text-decoration: none;
+   }
+   :root{
+   --white: #fff;
+   --black: #24292d;
+   --nav-main: #4070f4;
+   --switchers-main: #0b3cc1;
+   --light-bg: #cfdbfc;
+   --body-bg: #e7edfd;
+   }
+   body {
+   
+   background-color: var(--body-bg);
+   
+   }
+   nav{
+   position: fixed;
+   height: 70px;
+   width: 100%;
+   background: var(--nav-main);
+   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+   }
+   nav .navbar{
+   display: flex;
+   align-items: center;
+   height: 100%;
+   max-width: 1300px;
+   margin: auto;
+   padding: 0 30px;
+   justify-content: space-between;
+   }
+   .nav__list {
+   justify-content: space-around;
+   }
+   .nav__icon {
+   font-size: 1.5rem;
+   }
+   nav .navbar a{
+   font-size: 30px;
+   font-weight: 500;
+   color: var(--white);
+   text-decoration: none;
+   }
+   .navbar .nav-links{
+   display: flex;
+   }
+   .navbar .nav-links li{
+   margin: 0 8px;
+   list-style: none;
+   display: flex;
+   }
+   .navbar .nav-links a{
+   font-size: 18px;
+   font-weight: 400;
+   opacity: 1;
+   }
+   .navbar .nav-links a:hover{
+   opacity: 1;
+   }
+   .navbar .appearance{
+   display: flex;
+   align-items: center;
+   }
+   .appearance .light-dark,
+   .appearance .icons{
+   height: 50px;
+   width: 50px;
+   border-radius: 6px;
+   line-height: 50px;
+   text-align: center;
+   color: var(--white);
+   font-size: 20px;
+   background: var(--switchers-main);
+   cursor: pointer;
+   }
+   .appearance .light-dark i,
+   .appearance .icons i{
+   opacity: 1;
+   }
+   .appearance .light-dark:hover i,
+   .appearance .icons:hover i{
+   opacity: 1;
+   }
+   .appearance .light-dark:hover{
+   box-shadow: 0 5px 10px rgba(0,0,0,0.1)
+   }
+   .appearance .light-dark i{
+   height: 100%;
+   width: 100%;
+   }
+   .appearance .color-icon{
+   position: relative;
+   }
+   .appearance .icons{
+   width: 70px;
+   height: 50px;
+   margin-left: 14px;
+   }
+   .appearance .color-box{
+   position: absolute;
+   bottom: -133px;
+   right: 0;
+   min-height: 100px;
+   background: var(--white);
+   padding: 16px 20px 20px 20px;
+   border-radius: 6px;
+   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+   opacity: 0;
+   pointer-events: none;
+   }
+   .color-box::before{
+   content: '';
+   position: absolute;
+   top: -10px;
+   right: 20px;
+   height: 30px;
+   width: 30px;
+   border-radius: 50%;
+   background: var(--white);
+   transform: rotate(45deg);
+   }
+   .color-icon.open .color-box{
+   opacity: 1;
+   pointer-events: auto;
+   }
+   .color-icon.open .arrow{
+   transform: rotate(-180deg);
+   }
+   .appearance .color-box h3{
+   font-size: 16px;
+   font-weight: 600;
+   display: block;
+   color: var(--nav-main);
+   text-align: left;
+   white-space: nowrap;
+   margin-bottom: 10px;
+   }
+   .appearance .color-box .color-switchers{
+   display: flex;
+   }
+   .color-box .color-switchers .btn{
+   display: inline-block;
+   height: 40px;
+   width: 40px;
+   border: none;
+   outline: none;
+   border-radius: 50%;
+   margin: 0 5px;
+   cursor: pointer;
+   background: #4070F4;
+   
+   }
+   .color-switchers .btn.blue.active{
+   box-shadow: 0 0 0 2px #fff,
+   0 0 0 4px #4070F4;
+   }
+   .color-switchers .btn.orange{
+   background: #F79F1F;
+   }
+   .color-switchers .btn.orange.active{
+   box-shadow: 0 0 0 2px #fff,
+   0 0 0 4px #F79F1F;
+   }
+   .color-switchers .btn.purple{
+   background: #8e44ad;
+   }
+   .color-switchers .btn.purple.active{
+   box-shadow: 0 0 0 2px #fff,
+   0 0 0 4px #8e44Ad;
+   }
+   .color-switchers .btn.green{
+   background: #3A9943;
+   }
+   .color-switchers .btn.green.active{
+   box-shadow: 0 0 0 2px #fff,
+   0 0 0 4px #3A9943;
+   }
+   
+   /* Sidebar start here  */
+   .sidebar{
+   position: fixed;
+   background: var(--light-bg);
+   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+   width: 25%;
+   height: 95%;
+   top: 80px;
+   left: 0;
+   }
+   
+   .sidebar .sidenav li {
+   margin: 25px 0;
+   }
+   
+   .sidebar .sidenav li a{
+   color: var(--black);
+   padding: 0 30px;
+   
+   }
+   .sidebar .sidenav li a:hover{
+   margin-left: 20px;
+   transition: 0.4s;
+   }
+   
+   /* Main Content Section Start Here  */
+   
+   .main{
+   margin-left: 25%;
+   width: 75%;
+   padding: 0.1px;
+   }
+   .space{
+   margin-top: 80px;
+   }
+   
+   /* News feed content */
+   
+   .container{
+   font-family: sans-serif;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: var(--body-bg);
+   }
+   
+   .item{
+   padding: 0 0 1.5em 0;
+   max-width: 70%;
+   width: 100%;
+   border-radius: 5px;
+   background: var(--light-bg);
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+   }
+   
+   .profile{
+   display: flex;
+   align-items: center;
+   margin: 1em;
+   }
+   
+   .profile .name a{
+   color: var(--black);
+   }
+   
+   .profile .img{
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   background: var(--body-bg);
+   border: 1px solid #ccc3;
+   margin-right: 0.5em;
+   pointer-events: none;
+   overflow: hidden;
+   }
+   .profile .ic{
+   text-align: center;
+   padding-left:20px;
+   padding-right:20px;
+   padding-top: 15px;
+   padding-bottom: 15px;
+   border-radius: 50%;
+   color: var(--black);
+   background: var(--body-bg);
+   border: 1px solid #ccc3;
+   margin-right: 0.5em;
+   pointer-events: none;
+   overflow: hidden;
+   }
+   .profile .img img{
+   width: 100%;
+   height: 100%;
+   }
+   .feed-text {
+   text-align: justify;
+   padding: 20px;
+   color: var(--black);
+   background-color: var(--body-bg);
+   }
+   
+   /* Read more and less */
+   
+   .read-button{
+   padding: 0 0 0 5px;
+   font-weight:500;
+   color: var(--nav-main);
+   }
+   
+   .read-more-text{
+   display: none;
+   }
+   
+   .read-more-text--show{
+   display: inline;
+   }
+   
+   .bg-img img{
+   width: 100%;
+   height: 100%;
+   }
+   
+   .pcontainer{
+   width: 100%;
+   height: 480px;
+   overflow: hidden;
+   background: var(--light-bg);
+   border-radius: 10px;
+   /* transition: height 0.2s ease;
+   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);*/
+   }
+   .pcontainer .pwrapper{
+   width: 100%;
+   display: flex;
+   }
+   .pcontainer .pwrapper section{
+   width: 100%;
+   background: var(--body-bg);
+   }
+   .cpost header{
+   font-size: 22px;
+   font-weight: 600;
+   padding: 17px 0;
+   text-align: center;
+   color: var(--white);
+   background: var(--nav-main);
+   border-bottom: 1px solid #bfbfbf;
+   }
+   .cpost form{
+   margin: 20px 25px;
+   }
+   form .designb{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   }
+   form .designb{
+   height: 200px;
+   margin: 30px 0;
+   padding: 0 15px;
+   border-radius: 7px;
+   border: 1px solid #B9B9B9;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+   outline: none;
+   border: none;
+   }
+   form .bdesign{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   }
+   form .bdesign{
+   height: 57px;
+   margin: 15px 0;
+   padding: 0 15px;
+   border-radius: 7px;
+   border: 1px solid #B9B9B9;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+   outline: none;
+   border: none;
+   }
+   #ContactForm1_contact-form-email-message {
+   height: 80%;
+   width: 100%;
+   background: var(--body-bg);
+   outline: none;
+   border: none;
+   }
+   #ContactForm1_contact-form-name {
+   width: 100%;
+   height: 50%;
+   background: var(--body-bg);
+   outline: none;
+   border: none;
+   }
+   #ContactForm1_contact-form-email {
+   width: 100%;
+   height: 50%;
+   background: var(--body-bg);
+   outline: none;
+   border: none;
+   }
+   #ContactForm1_contact-form-submit {
+   width: 100%;
+   height: 70%;
+   background: var(--nav-main);
+   color: var(--white);
+   font-size: 18px;
+   font-weight: 500;
+   outline: none;
+   border: none;
+   }
+   form .postbutton{
+   height: 53px;
+   border-radius: 7px;
+   background: var(--nav-main);
+   width: 100%;
+   outline: none;
+   border: none;
+   }
+   
+   /* Mobile view tab start */
+   @media screen and (max-width: 800px) {
+   nav{
+   position: fixed;
+   height: 50px;
+   width: 100%;
+   background: var(--nav-main);
+   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+   }
+   nav .navbar a{
+   font-size: 25px;
+   font-weight: 500;
+   color: var(--white);
+   text-decoration: none;
+   }
+   .appearance .light-dark,
+   .appearance .icons{
+   height: 35px;
+   width: 35px;
+   border-radius: 6px;
+   line-height: 35px;
+   text-align: center;
+   color: var(--white);
+   font-size: 20px;
+   background: var(--switchers-main);
+   cursor: pointer;
+   }
+   .appearance .icons{
+   width: 55px;
+   height: 35px;
+   margin-left: 14px;
+   }
+   .nav__menu {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   background: var(--nav-main);
+   width: 100%;
+   height: 3rem;
+   padding: 0 1rem; 
+   display: grid;
+   align-content: center;
+   border-radius: 1rem 1rem 0 0;
+   }
+   .nav__name {
+   display: none;
+   }
+   .sidebar {
+   display: none;
+   }
+   .main {
+   width: 100%;
+   margin-left: 0;
+   }
+   .item{
+   max-width: 95%;
+   }
+   
+   }
+   
+   /* Dextop view start */
+   @media screen and (min-width: 800px) {
+   .nav__icon {
+   display: none;
+   }
+   
+   }
+   
+   
+   
+   
+   
+   
+   
+   
+   </style>
+   
+   
+   
+   
+   
+   
+   </head>
+<body>
+
+  <nav>
+    <div class="navbar">
+      <div class="logo"><a href="#">Muhammad</a></div>
+      <div class="nav__menu">  
+      
+      <ul class="nav-links nav__list">
+        
+        <li>     
+        <a href="#">
+        <i class='bx bx-home-alt nav__icon'></i>
+        <span class="nav__name">Home</span>
+        </a>    
+        </li>
+        <li>
+        <a href="#">
+        <i class='bx bx-user nav__icon'></i>
+        <span class="nav__name">About</span>
+        </a>
+        </li>
+
+        <li>
+        <a href="#" onclick=" SolutionFunction ()">
+        <i class='bx bx-book-alt nav__icon'> </i>
+        <span class="nav__name">Skills</span>
+        </a>
+        </li>
+
+        <li>
+        <a href="#">
+        <i class='bx bx-briefcase-alt nav__icon'></i>
+        <span class="nav__name">Portfolio</span>
+        </a>
+        </li>
+
+        <li>
+        <a href="#" onclick=" SolutionFunction ()">
+        <i class='bx bx-message-square-detail nav__icon'></i>
+        <span class="nav__name">Contact</span>
+        </a>
+        </li>
+        
+      </ul> 
+      </div>
+      
+      
+      <div class="appearance">
+        <div class="light-dark">
+          <i class="btn fas fa-moon" data-color="#e4e6eb #e4e6eb #24292D #24292D #24292D #242526"></i>
+        </div>
+        <div class="color-icon">
+        <div class="icons">
+            <i class="fas fa-palette"></i>
+            <i class="fas fa-sort-down arrow"></i>
+          </div>
+          <div class="color-box">
+            <h3>Color Switcher</h3>
+            <div class="color-switchers">
+              <button class="btn blue active" data-color="#fff #24292d #4070f4 #0b3cc1 #cfdbfc #e7edfe"></button>
+              <button class="btn orange" data-color="#fff #242526 #F79F1F #DD8808 #ffeccc #fef5e6"></button>
+              <button class="btn purple" data-color="#fff #242526 #8e44ad #783993 #ffccff #eadaf1"></button>
+              <button class="btn green" data-color="#fff #242526 #3A9943 #2A6F31 #ccffcc #DAF1DC"></button>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </nav> 
+  
+  <div class="sidebar">
+  <ul class="sidenav">
+  <li>
+  <a href="#">
+  <i class="fas fa-server"></i>
+  <span>Dashboard</span>
+  </a>
+  </li>
+  <li>
+  <a href="#">
+  <i class="fas fa-concierge-bell"></i>
+  <span>Services</span>
+  </a>
+  </li>
+  <li>
+  <a href="#">
+  <i class="fas fa-calendar-alt"></i>
+  <span>Events</span>
+  </a>
+  </li>
+  <li>
+  <a href="#">
+  <i class="fas fa-cog"></i>
+  <span>Setting</span>
+  </a>
+  </li>
+  <li>
+  <a href="#">
+  <i class="fas fa-question-circle"></i>
+  <span>About</span>
+  </a>
+  </li>
+  <li>
+  <a href="#">
+  <i class="fas fa-address-card"></i>
+  <span>Contact</span>
+  </a>
+  </li>
+  </ul>
+  </div>
+  
+  <div class="main">
+  <div class="space">
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <div id="solution" style="display: none;">
+     <div class="row">
+     <div class="container">
+     <div class="item">
+     
+     <div class="pcontainer">
+     <div class="pwrapper">
+     <section class="cpost">
+     <header>Create post</header>
+     <form name="contact-form">
+     <div class="designb">
+     <textarea placeholder="what's on your mind?"
+     id="ContactForm1_contact-form-email-message"
+     name="email-message"
+     ></textarea>
+     </div>
+     <div class="bdesign">
+     
+     <input placeholder="Name"
+     id="ContactForm1_contact-form-name"
+     name="name"
+     size="30"
+     type="text"
+     value=""
+     />
+     <input placeholder="Email"
+     id="ContactForm1_contact-form-email"
+     name="email"
+     size="30"
+     type="text"
+     value=""
+     />
+     </div>
+     <button class="postbutton">  <input id="ContactForm1_contact-form-submit" type="button" value="Post" /></button>
+     </form>
+     </section>
+     </div>
+     </div>
+     
+     </div>
+     </div>
+     </div>
+     
+     </div>
+    
+     </br>
+     
+
+     <div id="0000">
+     <div class="row">
+     <div class="container">
+     <div class="item">
+     <div class="profile">
+  <!--   <div class="img">
+     <img src="https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=845&q=80" alt="" />
+     </div>-->
+     <div class="ic">
+       <i class="fas fa-calendar-alt"></i> </div>
+     <div class="name">
+        <a href="mailto:someone@example.com">Pranto</a>
+     </div>
+     </div>
+     
+     <p class="feed-text">
+     Lorem ipsum dolor sit, amet consectetur elit. Unde, facere? Quae distinctio reprehenderit soluta fugiat, alias, doloremque similique tenetur magni voluptate a, perspiciatis quaerat! Necessitatibus velit consectetur expedita consequatur assumenda! FIRST TEXT SECTION
+     <span class="read-more-text">  SECOND TEXT SECTION dolo  consectetur adipisicing elit. Odio quasi quaerat, amet explicabo magnam, nulla porro dolorem itaque
+     </span>  <span class="read-button">Read More...</span>
+     </p>
+     
+     </div>
+     </div>
+     </div>
+     </br>
+     
+     
+     
+    <div class="row">
+    <div class="container">
+    <div class="item">
+    <div class="profile">
+    <div class="img">
+    <img src="https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=845&q=80" alt="" />
+    </div>
+    <div class="name">
+       <a href="mailto:someone@example.com">Pranto</a>
+    </div>
+    </div>
+      
+      <p class="feed-text">
+      Lorem ipsum dolor sit, amet consectetur elit. Unde, facere? Quae distinctio reprehenderit soluta fugiat, alias, doloremque similique tenetur magni voluptate a, perspiciatis quaerat! Necessitatibus velit consectetur expedita consequatur assumenda! FIRST TEXT SECTION
+      <span class="read-more-text">  SECOND TEXT SECTION dolo  consectetur adipisicing elit. Odio quasi quaerat, amet explicabo magnam, nulla porro dolorem itaque
+      </span>  <span class="read-button">Read More...</span>
+      </p>
+    
+    <div class="bg-img">
+    <img src="https://drive.google.com/thumbnail?id=1609641kKHib9Wq2Qz50XC1fKrX4jzl0k"/>
+    </div>
+    </div>
+      </div>
+      </div>
+      </div>
+      </br>
+        <div id="news4">
+      <div class="row">
+    <div class="container">
+    <div class="item">
+    <div class="profile">
+    <div class="img">
+    <img src="https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=845&q=80" alt="" />
+    </div>
+    <div class="name">
+       <a href="mailto:someone@example.com">Pranto</a>
+    </div>
+    </div>
+    
+    <div class="bg-img">
+    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="" srcset="" />
+    </div>
+    
+    </div>
+  
+    </div>
+    </div>
+    </br>
+  
+  
+  </div>
+  
+  
+  <div id="8">
+  
+  
+    <div class="row">
+    <div class="container">
+    <div class="item">
+    <div class="profile">
+    <div class="img">
+    <img src="/storage/emulated/0/Download/news-feed-web-feed-computer-icons-facebook-feed-643c8a5936f0e6e35afcec9317758126.png" alt="" />
+    </div>
+    <div class="name">
+       <a href="mailto:someone@example.com">Pranto</a>
+    </div>
+    </div>
+    
+    <p class="feed-text">
+    Lorem ipsum dolor sit, amet consectetur elit. Unde, facere? Quae distinctio reprehenderit soluta fugiat, alias, doloremque similique tenetur magni voluptate a, perspiciatis quaerat! Necessitatibus velit consectetur expedita consequatur assumenda! FIRST TEXT SECTION
+    <span class="read-more-text">  SECOND TEXT SECTION dolo  consectetur adipisicing elit. Odio quasi quaerat, amet explicabo magnam, nulla porro dolorem itaque
+    </span>  <span class="read-button">Read More...</span>
+    </p>
+    
+    
+    <div class="feed-video">
+    <div class="separator" style="clear: both; text-align: center;"><iframe allowfullscreen="" class="BLOG_video_class" height="266" src="https://www.youtube.com/embed/RCxJWf1J5v0" width="100%" youtube-src-id="NrsCej6SVxM"></iframe></div>
+    </div>
+    
+    
+    </div>
+    </div>
+    </div>
+    </br>
+    </div>
+    <div id="news3">
+    <div class="row">
+    
+    <div class="container">
+    <div class="item">
+    <div class="profile">
+    <div class="img">
+    <img src="https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=845&q=80" alt="" />
+    </div>
+    <div class="name">
+   <a href="mailto:someone@example.com">Pranto</a>
+    </div>
+    </div>
+   
+    <div class="feed-video">
+    <div class="separator" style="clear: both; text-align: center;"><iframe allowfullscreen="" class="BLOG_video_class" height="266" src="https://www.youtube.com/embed/NrsCej6SVxM" width="100%" youtube-src-id="NrsCej6SVxM"></iframe></div>
+    </div>
+   
+    </div>
+      </div>
+    
+    </div>
+    </div>
+    </div> 
+    </div>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+  
+ </br> </br> </br>
+ 
+  <script>
+  // Js code to make color box enable or disable
+  let colorIcons = document.querySelector(".color-icon"),
+  icons = document.querySelector(".color-icon .icons");
+
+  icons.addEventListener("click" , ()=>{
+    colorIcons.classList.toggle("open");
+  })
+
+  // getting all .btn elements
+  let buttons = document.querySelectorAll(".btn");
+
+  for (var button of buttons) {
+    button.addEventListener("click", (e)=>{ //adding click event to each button
+      let target = e.target;
+
+      let open = document.querySelector(".open");
+      if(open) open.classList.remove("open");
+
+      document.querySelector(".active").classList.remove("active");
+      target.classList.add("active");
+
+      // js code to switch colors (also day night mode)
+      let root = document.querySelector(":root");
+      let dataColor = target.getAttribute("data-color"); //getting data-color values of clicked button
+      let color = dataColor.split(" "); //splitting each color from space and make them array
+
+      //passing particular value to a particular root variable
+      root.style.setProperty("--white", color[0]);
+      root.style.setProperty("--black", color[1]);
+      root.style.setProperty("--nav-main", color[2]);
+      root.style.setProperty("--switchers-main", color[3]);
+      root.style.setProperty("--light-bg", color[4]);
+      root.style.setProperty("--body-bg", color[5]);
+
+      let iconName = target.className.split(" ")[2]; //getting the class name of icon
+
+      let coloText = document.querySelector(".row");
+
+      if(target.classList.contains("fa-moon")){ //if icon name is moon
+        target.classList.replace(iconName, "fa-sun") //replace it with the sun
+        colorIcons.style.display = "none";
+        coloText.classList.add("darkMode");
+      }else if (target.classList.contains("fa-sun")) { //if icon name is sun
+        target.classList.replace("fa-sun", "fa-moon"); //replace it with the sun
+        colorIcons.style.display = "block";
+        coloText.classList.remove("darkMode");
+        document.querySelector(".btn.blue").click();
+      }
+    });
+  }
+  
+  // read more and less js
+  const parentContainer =  document.querySelector('.space');
+  
+  parentContainer.addEventListener('click', event=>{
+  
+  const current = event.target;
+  
+  const isReadMoreBtn = current.className.includes('read-button');
+  
+  if(!isReadMoreBtn) return;
+  
+  const currentText = event.target.parentNode.querySelector('.read-more-text');
+  
+  currentText.classList.toggle('read-more-text--show');
+  
+  current.textContent = current.textContent.includes('Read More') ? "Read Less..." : "Read More...";
+  
+  })  
+  
+  // Hide and Show create post
+  
+function SolutionFunction() {
+  var x = document.getElementById("solution");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+
+
+
+
+
+// Randompost
+
+
+
+
+
+randomNumber = Math.floor(Math.random()*4+1);
+
+window.onload = function() {
+	if (randomNumber == 1) {
+		document.getElementById("news1").style.display = "inline"; 
+		document.getElementById("news2").style.display = "none"; 
+		document.getElementById("news3").style.display = "none"; 
+		document.getElementById("news4").style.display = "none"; 
+	}	
+	if (randomNumber == 2) {
+		document.getElementById("news1").style.display = "none"; 
+		document.getElementById("news2").style.display = "inline"; 
+		document.getElementById("news3").style.display = "none"; 
+		document.getElementById("news4").style.display = "none"; 
+	}
+	if (randomNumber == 3) {
+		document.getElementById("news1").style.display = "none"; 
+		document.getElementById("news2").style.display = "none"; 
+		document.getElementById("news3").style.display = "inline"; 
+		document.getElementById("news4").style.display = "none"; 
+	}
+	if (randomNumber == 4) {
+		document.getElementById("news1").style.display = "none"; 
+		document.getElementById("news2").style.display = "none"; 
+		document.getElementById("news3").style.display = "none"; 
+		document.getElementById("news4").style.display = "inline"; 
+	}
+}
+
+
+
+
+
+
+
+
+
+  
+ </script>
+</body>
+</html>
